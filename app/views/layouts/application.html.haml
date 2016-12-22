@@ -38,6 +38,11 @@
               = link_to new_tweet_path do
                 New Tweet
           %ul.nav.navbar-nav.navbar-right
+            %form.navbar-form.navbar-left
+              .form-group
+                %input.form-control.searchable-tweets{placeholder: "Search", type: "text"}/
+              %button.btn.btn-default.searchable-button{type: "submit"} Submit
+
             - if user_signed_in?
               %li
                 %p.navbar-text

@@ -1,5 +1,14 @@
 # README
 
+- Add a "search" input in a form to the navbar of your twitter app
+- After each keypress, submit an ajax request to your tweet index page, including the search text.
+  - Update the index action to look for a search param (that your form sends)
+  - If present, filter all the tweets to just those that include that term (use the database to do this with a LIKE clause)
+  - Render some javascript that replaces your list of tweets on the page with the found tweets
+- This will be very much like our in-class example but instead of a drop down it is on an input field
+- Look into debouncing so we aren't doing searches on every keypress, but only when the user stops typing for a moment.
+
+
 X Our Twitter does not support multiple users (yet)
 - Reimplement a single user's Twitter timeline with a Bootstrap / The Iron Yard flare.
 X Make the root page be the list of tweets
