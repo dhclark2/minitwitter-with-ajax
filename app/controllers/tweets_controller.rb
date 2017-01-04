@@ -3,7 +3,16 @@ class TweetsController < ApplicationController
 
   # GET /tweets
   def index
-    @tweets = Tweet.all.order("created_at DESC").where(search == tweet.tweet)
+
+
+    # Where takes one of things:
+    #   - hash where the key is the name of the field, and the value is what to match EXACTLY
+    #   - a small sql snippet that would normally appear in a WHERE clause if we were writing all the sql
+    #
+    # We want to get to a where clause like this: "tweet like %whatevs%"
+    #
+    # So build that string in the ruby activerecord `where`
+    @tweets = Tweet.all.order("created_at DESC").where("tweet like ?", "%#{params[:search]}%")
   end
 
   # GET /tweets/1

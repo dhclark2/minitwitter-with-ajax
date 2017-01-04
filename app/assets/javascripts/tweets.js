@@ -1,8 +1,12 @@
 $(document).on('turbolinks:load', function() {
   $('.searchable-button').click(function(event) {
+    // Even though you are a form button, please don't submit the form
+    // we are going to handle all of this in javascript
+    event.preventDefault()
+
     var search = $('.searchable-tweets').val()
     $.ajax({
-      method: 'POST',
+      method: 'GET',
       url: '/',
       data: { search: search},
       dataType: 'script'
